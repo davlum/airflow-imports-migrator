@@ -1,0 +1,14 @@
+# GitHub Actions configuration
+name: Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install test deps
+      run: pip install -r requirements-dev.txt
+    - name: test
+      run: pytest
